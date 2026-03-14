@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:project/Features/Home/presentation/views/home_view.dart';
 import 'package:project/Features/Splash/Presentation/views/widgets/slide_text.dart';
 import 'package:project/core/utils/assets.dart';
 
@@ -16,15 +20,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    slidingTextAnimation = Tween<Offset>(
-      begin: const Offset(0, 10),
-      end: Offset.zero,
-    ).animate(animationController);
-    animationController.forward();
+    initSlidingAnimation();
+    navigateToHome();
   }
 
   @override
@@ -44,6 +41,26 @@ class _SplashViewBodyState extends State<SplashViewBody>
           SlideText(slidingTextAnimation: slidingTextAnimation),
         ],
       ),
+    );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    slidingTextAnimation = Tween<Offset>(
+      begin: const Offset(0, 10),
+      end: Offset.zero,
+    ).animate(animationController);
+    animationController.forward();
+  }
+
+  void navigateToHome() {
+    Get.to(
+      () => HomeView(),
+      duration: const Duration(seconds: 2),
+      transition: Transition.fadeIn,
     );
   }
 }
