@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Features/Home/presentation/views/widgets/custom_card.dart';
+import 'package:project/Features/Home/presentation/views/widgets/custom_horizontal_card.dart';
 
 class ListHorizontalCards extends StatelessWidget {
   const ListHorizontalCards({super.key});
