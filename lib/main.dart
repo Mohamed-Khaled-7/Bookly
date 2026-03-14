@@ -10,7 +10,6 @@ void main() {
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
   @override
-
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

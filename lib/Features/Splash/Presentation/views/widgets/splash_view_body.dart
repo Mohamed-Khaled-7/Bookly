@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:project/Features/Home/presentation/views/home_view.dart';
 import 'package:project/Features/Splash/Presentation/views/widgets/slide_text.dart';
+import 'package:project/constant.dart';
 import 'package:project/core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -50,17 +51,19 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 1),
     );
     slidingTextAnimation = Tween<Offset>(
-      begin: const Offset(0, 10),
+      begin: const Offset(0, 5),
       end: Offset.zero,
     ).animate(animationController);
     animationController.forward();
   }
 
   void navigateToHome() {
-    Get.to(
-      () => HomeView(),
-      duration: const Duration(seconds: 2),
-      transition: Transition.fadeIn,
-    );
+    Future.delayed(kDuration, () {
+      Get.to(
+        () => HomeView(),
+        duration: const Duration(seconds: 2),
+        transition: Transition.fadeIn,
+      );
+    });
   }
 }
