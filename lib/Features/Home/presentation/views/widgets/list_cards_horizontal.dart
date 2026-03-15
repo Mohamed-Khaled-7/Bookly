@@ -3,6 +3,16 @@ import 'package:project/Features/Home/presentation/views/widgets/custom_horizont
 
 class ListHorizontalCards extends StatelessWidget {
   const ListHorizontalCards({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return ListCards();
+  }
+}
+
+class ListCards extends StatelessWidget {
+  const ListCards({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
