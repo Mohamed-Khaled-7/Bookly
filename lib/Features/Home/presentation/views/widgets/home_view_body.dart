@@ -15,7 +15,10 @@ class HomeViewBody extends StatelessWidget {
             padding: const EdgeInsetsGeometry.only(left: 17),
             child: ListHorizontalCards(),
           ),
-          ListCardsVertical(),
+          Padding(
+            padding: const EdgeInsets.only(right: 230),
+            child: ListCardsVertical(),
+          ),
         ],
       ),
     );

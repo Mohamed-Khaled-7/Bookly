@@ -9,13 +9,24 @@ class ListCardsVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        CustomHeader(title: 'Best Seller'),
+        SizedBox(child: CustomHeader(title: 'Best Seller')),
         Row(
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsets.only(left: 23, top: 12),
+                padding: EdgeInsets.only(left: 2, top: 12),
                 child: CustomVerticalCard(),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'SMK DNJCNJD KDCJCN DNCJNDC',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                ],
               ),
             ),
           ],
