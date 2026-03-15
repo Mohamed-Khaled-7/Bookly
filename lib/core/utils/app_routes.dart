@@ -1,0 +1,19 @@
+import 'package:go_router/go_router.dart';
+import 'package:project/Features/Home/presentation/views/book_details_view.dart';
+import 'package:project/Features/Home/presentation/views/home_view.dart';
+import 'package:project/Features/Splash/Presentation/views/splash_view.dart';
+
+abstract class AppRoutes {
+  static final kHomeView = '/homeView';
+  static final kBookDetailsView = '/bookDetailsView';
+  static final routes = GoRouter(
+    routes: [
+      GoRoute(path: '/', builder: (context, state) => SplashView()),
+      GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
+      GoRoute(
+        path: kBookDetailsView,
+        builder: (context, state) => BookDetailsView(),
+      ),
+    ],
+  );
+}

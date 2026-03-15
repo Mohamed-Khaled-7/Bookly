@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
 class CustomVerticalCard extends StatelessWidget {
@@ -16,7 +18,16 @@ class CustomVerticalCard extends StatelessWidget {
               SizedBox(
                 height: 105,
                 width: 70,
-                child: Image.asset(AssetsData.testImage),
+                child: GestureDetector(
+                  onTap: () {
+                    Future.delayed(
+                      Duration.zero,
+                      () =>
+                          GoRouter.of(context).push(AppRoutes.kBookDetailsView),
+                    );
+                  },
+                  child: Image.asset(AssetsData.testImage),
+                ),
               ),
               SizedBox(width: 24),
               Expanded(
