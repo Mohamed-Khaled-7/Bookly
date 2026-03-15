@@ -9,21 +9,36 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(),
-          Padding(
-            padding: const EdgeInsetsGeometry.only(left: 17),
-            child: ListHorizontalCards(),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustomAppBar(),
+                Padding(
+                  padding: const EdgeInsetsGeometry.only(left: 17),
+                  child: ListHorizontalCards(),
+                ),
+                SizedBox(height: 20),
+                Header(),
+                ListCardsVertical(),
+              ],
+            ),
           ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(right: 233),
-            child: Text('Best Sellers', style: GoogleFonts.inter(fontSize: 20)),
-          ),
-          Expanded(child: ListCardsVertical()),
         ],
       ),
+    );
+  }
+}
+
+class Header extends StatelessWidget {
+  const Header({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 233),
+      child: Text('Best Sellers', style: GoogleFonts.inter(fontSize: 20)),
     );
   }
 }

@@ -7,10 +7,13 @@ class ListCardsVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
       itemBuilder: (context, _) {
         return Padding(
-          padding: const EdgeInsets.only(bottom: 14),
-          child: CustomVerticalCard(),
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: const CustomVerticalCard(),
         );
       },
       itemCount: 10,
