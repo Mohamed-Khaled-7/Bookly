@@ -40,15 +40,14 @@ class CustomVerticalCard extends StatelessWidget {
                     Row(
                       children: [
                         Text('500 \$', style: GoogleFonts.inter(fontSize: 20)),
-                        Padding(
-                          padding: EdgeInsets.only(left: 77),
-                          child: Text('⭐ 4.8'),
-                        ),
-                        SizedBox(width: 6),
+                        Spacer(flex: 3),
+                        Text('⭐ 4.8'),
+                        SizedBox(width: 2.3),
                         Text(
                           '(321)',
                           style: GoogleFonts.inter(color: Colors.grey),
                         ),
+                        Spacer(flex: 2),
                       ],
                     ),
                   ],
