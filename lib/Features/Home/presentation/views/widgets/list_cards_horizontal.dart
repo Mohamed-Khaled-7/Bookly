@@ -23,7 +23,7 @@ class ListCards extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(4.0),
-            child: CustomCard(),
+            child: CustomHorizontalCard(hight: 224,width: 150,),
           );
         },
         itemCount: 10,

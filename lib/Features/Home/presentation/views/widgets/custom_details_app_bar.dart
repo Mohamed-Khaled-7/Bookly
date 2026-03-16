@@ -11,7 +11,12 @@ class CustomDetailsAppBar extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsetsGeometry.only(left: 26),
-          child: Icon(LucideIcons.x),
+          child: IconButton(
+            icon: Icon(LucideIcons.x),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         IconButton(
           onPressed: () {},
