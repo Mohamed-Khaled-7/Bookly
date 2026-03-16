@@ -23,19 +23,28 @@ class AlsoLike extends StatelessWidget {
           height: 117,
           child: Padding(
             padding: const EdgeInsets.only(left: 17),
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: CustomHorizontalCard(hight: 133, width: 70),
-                );
-              },
-              itemCount: 10,
-            ),
+            child: AlsoLikeList(),
           ),
         ),
       ],
+    );
+  }
+}
+
+class AlsoLikeList extends StatelessWidget {
+  const AlsoLikeList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: CustomHorizontalCard(hight: 133, width: 70),
+        );
+      },
+      itemCount: 10,
     );
   }
 }
