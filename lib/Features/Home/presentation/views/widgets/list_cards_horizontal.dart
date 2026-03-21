@@ -10,9 +10,7 @@ class ListHorizontalCards extends StatelessWidget {
 }
 
 class ListCards extends StatelessWidget {
-  const ListCards({
-    super.key,
-  });
+  const ListCards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class ListCards extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(4.0),
-            child: CustomHorizontalCard(hight: 224,width: 150,),
+            child: CustomHorizontalCard(hight: 224, width: 150),
           );
         },
         itemCount: 10,

@@ -10,15 +10,22 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 40),
-        CustomDetailsAppBar(),
-        SizedBox(height: 20),
-        BookImage(),
-        BookNameAndAuther(),
-        ButtonPrice(),
-        AlsoLike(),
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              CustomDetailsAppBar(),
+              SizedBox(height: 20),
+              BookImage(),
+              BookNameAndAuther(),
+              ButtonPrice(),
+              AlsoLike(),
+            ],
+          ),
+        ),
       ],
     );
   }
