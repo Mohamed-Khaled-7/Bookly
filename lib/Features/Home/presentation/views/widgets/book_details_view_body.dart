@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/Features/Home/presentation/views/widgets/also_like.dart';
 import 'package:project/Features/Home/presentation/views/widgets/book_name_and_auther.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_details_app_bar.dart';
@@ -32,15 +33,15 @@ class BookDetailsViewBody extends StatelessWidget {
 }
 
 class BookImage extends StatelessWidget {
-  const BookImage({super.key});
-
+   BookImage({super.key});
+  BookModel bookModel = BookModel();
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
         height: 243,
         width: 162,
-        child: Image.network(),
+        child: Image.network(bookModel.volumeInfo!.imageLinks!.thumbnail!),
       ),
     );
   }
