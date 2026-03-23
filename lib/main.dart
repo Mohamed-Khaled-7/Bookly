@@ -15,7 +15,7 @@ void main() {
 }
 
 class Bookly extends StatelessWidget {
-  Bookly({super.key});
+  const Bookly({super.key});
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
