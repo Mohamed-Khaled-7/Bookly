@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
                 CustomAppBar(),
                 Padding(
                   padding: const EdgeInsetsGeometry.only(left: 17),
-                  child: ListFeatuersCards(),
+                  child: FeatuersCards(),
                 ),
                 SizedBox(height: 20),
                 Header(),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_featuers_card.dart';
 
-class ListFeatuersCards extends StatelessWidget {
-  const ListFeatuersCards({super.key});
+class FeatuersCards extends StatelessWidget {
+  const FeatuersCards({super.key});
   @override
   Widget build(BuildContext context) {
     return ListCards();

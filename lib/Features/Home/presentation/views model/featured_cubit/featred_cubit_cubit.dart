@@ -8,17 +8,19 @@ import 'package:project/core/utils/api_service.dart';
 
 part 'featured_cubit_state.dart';
 
-class FeaturedCubitCubit extends Cubit<FeatuerdCubitState> {
+class FeaturedCubit extends Cubit<FeatuerdCubitState> {
   HomeRepo homeRepo;
-  FeaturedCubitCubit({required this.homeRepo}) : super(FeaturedCubitInitial());
+  FeaturedCubit({required this.homeRepo}) : super(FeaturedCubitInitial());
   Future<void> getFeaturedBooks() async {
     emit(FeaturedCubitLoading());
     var data = await homeRepo.fetchFeatuerdBooks();
-    data.fold((failure) {
-      emit(FeaturedCubitError(errMessage: failure.errMessage));
-    },
-     (books) {
-       emit(FeaturedCubitSuccess(books: books));
-     });
+    data.fold(
+      (failure) {
+        emit(FeaturedCubitError(errMessage: failure.errMessage));
+      },
+      (books) {
+        emit(FeaturedCubitSuccess(books: books));
+      },
+    );
   }
 }
