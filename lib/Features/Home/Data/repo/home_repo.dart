@@ -3,6 +3,6 @@ import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/errors/faliers.dart';
 
 abstract class HomeRepo {
-  Future<Either<Faliers, List<BookModel>>> fetchFeatuerdBooks();
-  Future<Either<Faliers, List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failure, List<BookModel>>> fetchFeatuerdBooks();
+  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks();
 }
