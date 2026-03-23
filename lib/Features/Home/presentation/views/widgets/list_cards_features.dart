@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project/Features/Home/presentation/views/widgets/custom_horizontal_card.dart';
+import 'package:project/Features/Home/presentation/views/widgets/custom_featuers_card.dart';
 
-class ListHorizontalCards extends StatelessWidget {
-  const ListHorizontalCards({super.key});
+class ListFeatuersCards extends StatelessWidget {
+  const ListFeatuersCards({super.key});
   @override
   Widget build(BuildContext context) {
     return ListCards();
@@ -21,7 +21,7 @@ class ListCards extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(4.0),
-            child: CustomHorizontalCard(hight: 224, width: 150),
+            child: CustomFeatuersCard(hight: 224, width: 150),
           );
         },
         itemCount: 10,

@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
-class CustomHorizontalCard extends StatelessWidget {
-  CustomHorizontalCard({super.key, required this.hight, required this.width});
+class CustomFeatuersCard extends StatelessWidget {
+  CustomFeatuersCard({super.key, required this.hight, required this.width});
   double hight;
   double width;
   @override

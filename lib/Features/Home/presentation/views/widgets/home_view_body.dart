@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:project/Features/Home/presentation/views/widgets/list_cards_horizontal.dart';
-import 'package:project/Features/Home/presentation/views/widgets/list_cards_vertical.dart';
+import 'package:project/Features/Home/presentation/views/widgets/list_cards_features.dart';
+import 'package:project/Features/Home/presentation/views/widgets/list_cards_best_seller.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -17,11 +17,11 @@ class HomeViewBody extends StatelessWidget {
                 CustomAppBar(),
                 Padding(
                   padding: const EdgeInsetsGeometry.only(left: 17),
-                  child: ListHorizontalCards(),
+                  child: ListFeatuersCards(),
                 ),
                 SizedBox(height: 20),
                 Header(),
-                ListCardsVertical(),
+                BestSellerCards(),
               ],
             ),
           ),

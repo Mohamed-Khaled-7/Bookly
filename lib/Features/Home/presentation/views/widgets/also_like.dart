@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project/Features/Home/presentation/views/widgets/custom_horizontal_card.dart';
+import 'package:project/Features/Home/presentation/views/widgets/custom_featuers_card.dart';
 
 class AlsoLike extends StatelessWidget {
   const AlsoLike({super.key});
@@ -41,7 +41,7 @@ class AlsoLikeList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: CustomHorizontalCard(hight: 133, width: 70),
+          child: CustomFeatuersCard(hight: 133, width: 70),
         );
       },
       itemCount: 10,

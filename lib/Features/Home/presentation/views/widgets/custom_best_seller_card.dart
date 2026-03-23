@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
-class CustomVerticalCard extends StatelessWidget {
-  const CustomVerticalCard({super.key});
+class CustomBestSellerCard extends StatelessWidget {
+  const CustomBestSellerCard({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(

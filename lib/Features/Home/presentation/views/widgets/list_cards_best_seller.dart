@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project/Features/Home/presentation/views/widgets/custom_vertical_card.dart';
+import 'package:project/Features/Home/presentation/views/widgets/custom_best_seller_card.dart';
 
-class ListCardsVertical extends StatelessWidget {
-  const ListCardsVertical({super.key});
+class BestSellerCards extends StatelessWidget {
+  const BestSellerCards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ListCardsVertical extends StatelessWidget {
       itemBuilder: (context, _) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: const CustomVerticalCard(),
+          child: const CustomBestSellerCard(),
         );
       },
       itemCount: 10,
