@@ -40,7 +40,7 @@ class BookImage extends StatelessWidget {
       child: SizedBox(
         height: 243,
         width: 162,
-        child: Image.asset(AssetsData.testImage),
+        child: Image.network(),
       ),
     );
   }
