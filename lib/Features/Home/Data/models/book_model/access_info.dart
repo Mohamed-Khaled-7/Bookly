@@ -12,7 +12,6 @@ class AccessInfo extends Equatable {
   final String? webReaderLink;
   final String? accessViewStatus;
   final bool? quoteSharingAllowed;
-
   const AccessInfo({
     this.country,
     this.viewability,

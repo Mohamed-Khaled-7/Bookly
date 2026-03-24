@@ -4,11 +4,11 @@ import 'package:project/Features/Home/presentation/views/widgets/also_like.dart'
 import 'package:project/Features/Home/presentation/views/widgets/book_name_and_auther.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_details_app_bar.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_price_button.dart';
-import 'package:project/core/utils/assets.dart';
+
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  BookDetailsViewBody({super.key,required this.bookModel});
+  BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -33,15 +33,14 @@ class BookDetailsViewBody extends StatelessWidget {
 }
 
 class BookImage extends StatelessWidget {
-   BookImage({super.key});
-  BookModel bookModel = BookModel();
+  const BookImage({super.key});
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
         height: 243,
         width: 162,
-        child: Image.network(bookModel.volumeInfo!.imageLinks!.thumbnail!),
+        child: Image.network(),
       ),
     );
   }

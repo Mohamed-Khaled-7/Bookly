@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
+import 'package:project/core/utils/assets.dart';
 
-class CustomFeatuersCard extends StatelessWidget {
-  CustomFeatuersCard({super.key, required this.bookModel});
-  BookModel bookModel;
+class CustomAlsoLikeCard extends StatelessWidget {
+  const CustomAlsoLikeCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +13,10 @@ class CustomFeatuersCard extends StatelessWidget {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView);
       },
       child: Container(
-        height: 224,
-        width: 150,
+        height: 130,
+        width: 70,
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(bookModel.volumeInfo!.imageLinks!.thumbnail!),
-          ),
+          image: DecorationImage(image: AssetImage(AssetsData.testImage)),
           borderRadius: BorderRadius.circular(20),
         ),
       ),

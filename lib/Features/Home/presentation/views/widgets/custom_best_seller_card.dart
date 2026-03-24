@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
 class CustomBestSellerCard extends StatelessWidget {
-  const CustomBestSellerCard({super.key});
+   CustomBestSellerCard({super.key,required this.bookModel,required this.i});
+  BookModel bookModel;
+  int i;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +29,7 @@ class CustomBestSellerCard extends StatelessWidget {
                           GoRouter.of(context).push(AppRoutes.kBookDetailsView),
                     );
                   },
-                  child: Image.asset(AssetsData.testImage),
+                  child: Image.asset(bookModel.volumeInfo!.imageLinks!.thumbnail!),
                 ),
               ),
               SizedBox(width: 24),
@@ -37,25 +40,25 @@ class CustomBestSellerCard extends StatelessWidget {
                   children: [
                     Text(
                       overflow: TextOverflow.ellipsis,
-                      'The Jungle Book',
+                      bookModel.volumeInfo!.title!,
                       maxLines: 2,
                       style: GoogleFonts.inter(fontSize: 20),
                       softWrap: true,
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Rudyard Kipling',
+                      bookModel.volumeInfo!.authors![0],
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                     SizedBox(height: 4),
                     Row(
                       children: [
-                        Text('500 \$', style: GoogleFonts.inter(fontSize: 20)),
+                        Text( 'Free', style: GoogleFonts.inter(fontSize: 20)),
                         Spacer(flex: 3),
-                        Text('⭐ 4.8'),
+                        Text('⭐ ${bookModel.volumeInfo!.maturityRating}', style: GoogleFonts.inter(fontSize: 20)),
                         SizedBox(width: 2.3),
                         Text(
-                          '(321)',
+                          '212',
                           style: GoogleFonts.inter(color: Colors.grey),
                         ),
                         Spacer(flex: 2),
