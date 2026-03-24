@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/Features/Home/presentation/views/widgets/book_details_view_body.dart';
 
-class BookDetailsView extends StatefulWidget {
-  const BookDetailsView({super.key});
-  @override
-  State<BookDetailsView> createState() => _BookDetailsViewState();
-}
-
-class _BookDetailsViewState extends State<BookDetailsView> {
-  @override
+class BookDetailsView extends StatelessWidget {
+  BookModel bookModel;
+   BookDetailsView({super.key,required this.bookModel});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const BookDetailsViewBody());
+    return Scaffold(body: BookDetailsViewBody(bookModel: bookModel,));
   }
 }

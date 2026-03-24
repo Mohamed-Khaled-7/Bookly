@@ -11,14 +11,14 @@ class CustomFeatuersCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView);
+        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: Container(
         height: 224,
         width: 150,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(bookModel.volumeInfo!.imageLinks!.thumbnail!),
+            image: NetworkImage(bookModel.volumeInfo.imageLinks!.thumbnail!),
           ),
           borderRadius: BorderRadius.circular(20),
         ),

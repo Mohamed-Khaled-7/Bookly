@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsGeometry.only(left: 17),
                   child: FeatuersCards(),
-                ),
+                ),  
                 SizedBox(height: 20),
                 Header(),
                 BestSellerCards(),

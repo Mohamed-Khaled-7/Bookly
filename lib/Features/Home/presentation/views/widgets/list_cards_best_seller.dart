@@ -19,10 +19,10 @@ class BestSellerCards extends StatelessWidget {
             itemBuilder:(context, index){
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                child:  CustomBestSellerCard(i:index,bookModel: state.books[index],),
+                child:  CustomBestSellerCard(bookModel:state.books[index],),
               );
             },
-            itemCount: 10,
+            itemCount: state.books.length,
           );
         }else if(state is BestSellerFailure)
         {

@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/Features/Home/presentation/views/book_details_view.dart';
 import 'package:project/Features/Home/presentation/views/home_view.dart';
 import 'package:project/Features/Splash/Presentation/views/splash_view.dart';
@@ -12,7 +13,10 @@ abstract class AppRoutes {
       GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
       GoRoute(
         path: kBookDetailsView,
-        builder: (context, state) => BookDetailsView(),
+        builder: (context, state) {
+          final bookModel = state.extra as BookModel;
+          return BookDetailsView(bookModel: bookModel,);
+        },
       ),
     ],
   );

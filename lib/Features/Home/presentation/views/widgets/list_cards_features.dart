@@ -11,14 +11,11 @@ class FeatuersCards extends StatelessWidget {
     return ListCards();
   }
 }
-
 class ListCards extends StatelessWidget {
   const ListCards({super.key});
-
   @override
   Widget build(BuildContext context) {
     context.read<FeaturedCubit>().homeRepo.fetchFeatuerdBooks();
-
     return BlocBuilder<FeaturedCubit, FeatuerdCubitState>(
       builder: (context, state) {
         if (state is FeaturedCubitSuccess) {

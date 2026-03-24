@@ -6,9 +6,8 @@ import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
 class CustomBestSellerCard extends StatelessWidget {
-   CustomBestSellerCard({super.key,required this.bookModel,required this.i});
+   CustomBestSellerCard({super.key,required this.bookModel});
   BookModel bookModel;
-  int i;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +28,7 @@ class CustomBestSellerCard extends StatelessWidget {
                           GoRouter.of(context).push(AppRoutes.kBookDetailsView),
                     );
                   },
-                  child: Image.asset(bookModel.volumeInfo!.imageLinks!.thumbnail!),
+                  child: Image.asset(bookModel.volumeInfo.imageLinks!.thumbnail!),
                 ),
               ),
               SizedBox(width: 24),
@@ -40,14 +39,14 @@ class CustomBestSellerCard extends StatelessWidget {
                   children: [
                     Text(
                       overflow: TextOverflow.ellipsis,
-                      bookModel.volumeInfo!.title!,
+                      bookModel.volumeInfo.title!,
                       maxLines: 2,
                       style: GoogleFonts.inter(fontSize: 20),
                       softWrap: true,
                     ),
                     SizedBox(height: 4),
                     Text(
-                      bookModel.volumeInfo!.authors![0],
+                      bookModel.volumeInfo.authors![0],
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                     SizedBox(height: 4),
@@ -55,7 +54,7 @@ class CustomBestSellerCard extends StatelessWidget {
                       children: [
                         Text( 'Free', style: GoogleFonts.inter(fontSize: 20)),
                         Spacer(flex: 3),
-                        Text('⭐ ${bookModel.volumeInfo!.maturityRating}', style: GoogleFonts.inter(fontSize: 20)),
+                        Text('⭐ ${bookModel.volumeInfo.maturityRating}', style: GoogleFonts.inter(fontSize: 20)),
                         SizedBox(width: 2.3),
                         Text(
                           '212',
