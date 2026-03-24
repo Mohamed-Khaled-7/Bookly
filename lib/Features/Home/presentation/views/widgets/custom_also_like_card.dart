@@ -1,24 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/assets.dart';
 
 class CustomAlsoLikeCard extends StatelessWidget {
-  const CustomAlsoLikeCard({super.key});
-
+  CustomAlsoLikeCard({super.key, required this.bookModel});
+  BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView);
       },
-      child: Container(
-        height: 130,
-        width: 70,
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(AssetsData.testImage)),
-          borderRadius: BorderRadius.circular(20),
-        ),
+      child: CachedNetworkImage(
+        imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,
+        fit: BoxFit.fill,
       ),
     );
   }

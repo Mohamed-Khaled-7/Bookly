@@ -6,9 +6,8 @@ import 'package:project/Features/Home/presentation/views/widgets/book_name_and_a
 import 'package:project/Features/Home/presentation/views/widgets/custom_details_app_bar.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_price_button.dart';
 
-
 class BookDetailsViewBody extends StatelessWidget {
-  BookDetailsViewBody({super.key,required this.bookModel});
+  BookDetailsViewBody({super.key, required this.bookModel});
   BookModel bookModel;
   @override
   Widget build(BuildContext context) {
@@ -21,8 +20,8 @@ class BookDetailsViewBody extends StatelessWidget {
               SizedBox(height: 40),
               CustomDetailsAppBar(),
               SizedBox(height: 20),
-              BookImage(imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,),
-              BookNameAndAuther(),
+              BookImage(imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!),
+              BookNameAndAuther(bookModel: bookModel,),
               ButtonPrice(),
               AlsoLike(),
             ],
@@ -32,5 +31,3 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
-
-

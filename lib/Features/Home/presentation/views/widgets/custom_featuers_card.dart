@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
@@ -13,14 +14,15 @@ class CustomFeatuersCard extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
-      child: Container(
-        height: 224,
-        width: 150,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(bookModel.volumeInfo.imageLinks!.thumbnail!),
-          ),
-          borderRadius: BorderRadius.circular(20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: CachedNetworkImage(
+          imageUrl:
+              bookModel.volumeInfo.imageLinks?.thumbnail ??
+              'https://placehold.co/150x220?text=No+Image',
+          fit: BoxFit.cover,
+          errorWidget: (context, url, error) =>
+              Image.network('https://placehold.co/150x220?text=Error'),
         ),
       ),
     );

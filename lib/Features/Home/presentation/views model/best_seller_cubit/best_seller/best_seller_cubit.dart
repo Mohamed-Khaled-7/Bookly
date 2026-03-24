@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/Features/Home/Data/repo/home_repo.dart';
-import 'package:project/core/errors/faliers.dart';
+
 
 part 'best_seller_state.dart';
 

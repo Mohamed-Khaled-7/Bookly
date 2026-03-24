@@ -1,12 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
-import 'package:project/core/utils/assets.dart';
 
 class CustomBestSellerCard extends StatelessWidget {
-   CustomBestSellerCard({super.key,required this.bookModel});
+  CustomBestSellerCard({super.key, required this.bookModel});
   BookModel bookModel;
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,14 @@ class CustomBestSellerCard extends StatelessWidget {
                 width: 70,
                 child: GestureDetector(
                   onTap: () {
-                    Future.delayed(
-                      Duration.zero,
-                      () =>
-                          GoRouter.of(context).push(AppRoutes.kBookDetailsView),
-                    );
+                    GoRouter.of(
+                      context,
+                    ).push(AppRoutes.kBookDetailsView, extra: bookModel);
                   },
-                  child: Image.asset(bookModel.volumeInfo.imageLinks!.thumbnail!),
+                  child: CachedNetworkImage(
+                    imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               SizedBox(width: 24),
@@ -41,7 +42,7 @@ class CustomBestSellerCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       bookModel.volumeInfo.title!,
                       maxLines: 2,
-                      style: GoogleFonts.inter(fontSize: 20),
+                      style: GoogleFonts.inter(fontSize: 18),
                       softWrap: true,
                     ),
                     SizedBox(height: 4),
@@ -52,9 +53,12 @@ class CustomBestSellerCard extends StatelessWidget {
                     SizedBox(height: 4),
                     Row(
                       children: [
-                        Text( 'Free', style: GoogleFonts.inter(fontSize: 20)),
+                        Text('Free', style: GoogleFonts.inter(fontSize: 20)),
                         Spacer(flex: 3),
-                        Text('⭐ ${bookModel.volumeInfo.maturityRating}', style: GoogleFonts.inter(fontSize: 20)),
+                        Text(
+                          '⭐ ${bookModel.volumeInfo.maturityRating}',
+                          style: GoogleFonts.inter(fontSize: 20),
+                        ),
                         SizedBox(width: 2.3),
                         Text(
                           '212',

@@ -14,7 +14,7 @@ class ButtonPrice extends StatelessWidget {
           Container(
             child: Center(
               child: Text(
-                '15.99 \$',
+                'Free \$',
                 style: GoogleFonts.inter(color: Colors.black, fontSize: 18),
               ),
             ),
