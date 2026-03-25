@@ -56,12 +56,12 @@ class CustomBestSellerCard extends StatelessWidget {
                         Text('Free', style: GoogleFonts.inter(fontSize: 20)),
                         Spacer(flex: 3),
                         Text(
-                          '⭐ ${bookModel.volumeInfo.maturityRating}',
-                          style: GoogleFonts.inter(fontSize: 20),
+                          '⭐ ${bookModel.volumeInfo.averageRating}',
+                          style: GoogleFonts.inter(fontSize: 16),
                         ),
                         SizedBox(width: 2.3),
                         Text(
-                          '212',
+                          bookModel.volumeInfo.ratingsCount.toString(),
                           style: GoogleFonts.inter(color: Colors.grey),
                         ),
                         Spacer(flex: 2),

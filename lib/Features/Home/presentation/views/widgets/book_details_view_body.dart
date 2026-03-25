@@ -20,7 +20,7 @@ class BookDetailsViewBody extends StatelessWidget {
               SizedBox(height: 40),
               CustomDetailsAppBar(),
               SizedBox(height: 20),
-              BookImage(imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!),
+              BookImage(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? 'https://dummyimage.com/600x400/000/fff&text=No+Image'),
               BookNameAndAuther(bookModel: bookModel,),
               ButtonPrice(),
               AlsoLike(),

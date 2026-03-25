@@ -1,9 +1,8 @@
 import 'package:equatable/equatable.dart';
-
-import 'dimensions.dart';
-import 'image_links.dart';
-import 'panelization_summary.dart';
-import 'reading_modes.dart';
+import 'package:project/Features/Home/Data/models/book_model/dimensions.dart';
+import 'package:project/Features/Home/Data/models/book_model/image_links.dart';
+import 'package:project/Features/Home/Data/models/book_model/panelization_summary.dart';
+import 'package:project/Features/Home/Data/models/book_model/reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
@@ -15,6 +14,8 @@ class VolumeInfo extends Equatable {
   final int? printedPageCount;
   final Dimensions? dimensions;
   final String? printType;
+  final num? averageRating; 
+  final int? ratingsCount; 
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
@@ -35,6 +36,8 @@ class VolumeInfo extends Equatable {
     this.printedPageCount,
     this.dimensions,
     this.printType,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -60,6 +63,8 @@ class VolumeInfo extends Equatable {
         ? null
         : Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
     printType: json['printType'] as String?,
+    averageRating: json['averageRating'] as num?,
+    ratingsCount: json['ratingsCount'] as int?,
     maturityRating: json['maturityRating'] as String?,
     allowAnonLogging: json['allowAnonLogging'] as bool?,
     contentVersion: json['contentVersion'] as String?,
@@ -87,6 +92,8 @@ class VolumeInfo extends Equatable {
     'printedPageCount': printedPageCount,
     'dimensions': dimensions?.toJson(),
     'printType': printType,
+    'averageRating': averageRating,
+    'ratingsCount': ratingsCount,
     'maturityRating': maturityRating,
     'allowAnonLogging': allowAnonLogging,
     'contentVersion': contentVersion,
@@ -110,6 +117,8 @@ class VolumeInfo extends Equatable {
       printedPageCount,
       dimensions,
       printType,
+      averageRating,
+      ratingsCount,
       maturityRating,
       allowAnonLogging,
       contentVersion,

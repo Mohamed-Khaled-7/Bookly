@@ -12,9 +12,9 @@ class ButtonPrice extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Center(
+            child:Center(
               child: Text(
-                'Free \$',
+                'Free',
                 style: GoogleFonts.inter(color: Colors.black, fontSize: 18),
               ),
             ),

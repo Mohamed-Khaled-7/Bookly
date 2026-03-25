@@ -5,8 +5,11 @@ import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
 
 class CustomFeatuersCard extends StatelessWidget {
-  CustomFeatuersCard({super.key, required this.bookModel});
-  BookModel bookModel;
+  const CustomFeatuersCard({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +17,22 @@ class CustomFeatuersCard extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: CachedNetworkImage(
-          imageUrl:
-              bookModel.volumeInfo.imageLinks?.thumbnail ??
-              'https://placehold.co/150x220?text=No+Image',
-          fit: BoxFit.cover,
-          errorWidget: (context, url, error) =>
-              Image.network('https://placehold.co/150x220?text=Error'),
+      child: AspectRatio(
+        aspectRatio: 2.7 / 4,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: CachedNetworkImage(
+            fit: BoxFit.fill,
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+            errorWidget: (context, url, error) => Container(
+              color: Colors.grey[900],
+              child: const Icon(
+                Icons.broken_image_outlined,
+                color: Colors.white54,
+                size: 32,
+              ),
+            ),
+          ),
         ),
       ),
     );
