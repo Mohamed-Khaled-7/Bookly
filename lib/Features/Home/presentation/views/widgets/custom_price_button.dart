@@ -28,21 +28,24 @@ class ButtonPrice extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          Container(
-            child: Center(
-              child: Text(
-                "Free Preview",
-                style: GoogleFonts.inter(color: Colors.white, fontSize: 16),
+          GestureDetector(
+            onTap:(){},
+            child: Container(
+              child: Center(
+                child: Text(
+                  "Free Preview",
+                  style: GoogleFonts.inter(color: Colors.white, fontSize: 16),
+                ),
               ),
-            ),
-            width: 150,
-            height: 48,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(17),
-                bottomRight: Radius.circular(17),
+              width: 150,
+              height: 48,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(17),
+                  bottomRight: Radius.circular(17),
+                ),
+                color: Color(0xffEF8262),
               ),
-              color: Color(0xffEF8262),
             ),
           ),
         ],

@@ -10,6 +10,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -18,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsGeometry.only(left: 17),
                   child: FeatuersCards(),
-                ),  
+                ),
                 SizedBox(height: 20),
                 Header(),
                 BestSellerCards(),

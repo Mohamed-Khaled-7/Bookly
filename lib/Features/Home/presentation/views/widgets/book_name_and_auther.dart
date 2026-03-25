@@ -26,10 +26,13 @@ class BookNameAndAuther extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('⭐ 4.8', style: GoogleFonts.poppins()),
+            Text(
+              '⭐ ${bookModel.volumeInfo.averageRating ?? 0}',
+              style: GoogleFonts.poppins(),
+            ),
             SizedBox(width: 4),
             Text(
-              '(109)',
+              '(${bookModel.volumeInfo.ratingsCount ?? 0})',
               style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
             ),
           ],
