@@ -4,8 +4,19 @@ import 'package:project/Features/Home/presentation/views%20model/best_seller_cub
 import 'package:project/Features/Home/presentation/views/widgets/custom_best_seller_card.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_widget_error.dart';
 
-class BestSellerCards extends StatelessWidget {
+class BestSellerCards extends StatefulWidget {
   const BestSellerCards({super.key});
+
+  @override
+  State<BestSellerCards> createState() => _BestSellerCardsState();
+}
+
+class _BestSellerCardsState extends State<BestSellerCards> {
+  @override
+  void initState() {
+    context.read<BestSellerCubit>().getBestSellerBooks();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +27,17 @@ class BestSellerCards extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemBuilder:(context, index){
+            itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                child:  CustomBestSellerCard(bookModel:state.books[index],),
+                child: CustomBestSellerCard(bookModel: state.books[index]),
               );
             },
             itemCount: state.books.length,
           );
-        }else if(state is BestSellerFailure)
-        {
-          return CustomError(errMessage: state.errMessage,);
-        }else{
+        } else if (state is BestSellerFailure) {
+          return Center(child: CustomError(errMessage: state.errMessage));
+        } else {
           return const Center(
             child: CircularProgressIndicator(color: Colors.blueAccent),
           );

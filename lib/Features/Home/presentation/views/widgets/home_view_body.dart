@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
               children: [
                 CustomAppBar(),
                 Padding(
-                  padding: const EdgeInsetsGeometry.only(left: 17),
+                  padding: const EdgeInsets.only(left: 17),
                   child: FeatuersCards(),
                 ),
                 SizedBox(height: 20),
@@ -34,12 +34,14 @@ class HomeViewBody extends StatelessWidget {
 
 class Header extends StatelessWidget {
   const Header({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 233),
-      child: Text('Best Sellers', style: GoogleFonts.inter(fontSize: 20)),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text('Best Sellers', style: GoogleFonts.inter(fontSize: 20)),
+      ),
     );
   }
 }

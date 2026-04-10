@@ -3,11 +3,11 @@ import 'package:equatable/equatable.dart';
 import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/Features/Home/Data/repo/home_repo.dart';
 
-
 part 'featured_cubit_state.dart';
 
 class FeaturedCubit extends Cubit<FeatuerdCubitState> {
   HomeRepo homeRepo;
+ 
   FeaturedCubit({required this.homeRepo}) : super(FeaturedCubitInitial());
   Future<void> getFeaturedBooks() async {
     emit(FeaturedCubitLoading());
@@ -21,4 +21,6 @@ class FeaturedCubit extends Cubit<FeatuerdCubitState> {
       },
     );
   }
+
+
 }

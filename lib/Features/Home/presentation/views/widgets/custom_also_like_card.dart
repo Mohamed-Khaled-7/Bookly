@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
-import 'package:project/core/utils/assets.dart';
 
 class CustomAlsoLikeCard extends StatelessWidget {
   CustomAlsoLikeCard({super.key, required this.bookModel});
@@ -15,7 +14,9 @@ class CustomAlsoLikeCard extends StatelessWidget {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: CachedNetworkImage(
-        imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,
+        imageUrl:
+            bookModel.volumeInfo.imageLinks?.thumbnail ??
+            'https://dummyimage.com/600x400/000/fff&text=No+Image',
         fit: BoxFit.fill,
       ),
     );

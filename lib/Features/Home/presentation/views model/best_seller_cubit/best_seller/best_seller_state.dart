@@ -15,7 +15,6 @@ final class BestSellerSuccess extends BestSellerState {
   final List<BookModel> books;
   const BestSellerSuccess({required this.books});
 }
-
 final class BestSellerFailure extends BestSellerState {
   final String errMessage;
   const BestSellerFailure({required this.errMessage});

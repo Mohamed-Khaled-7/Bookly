@@ -5,10 +5,7 @@ import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
 import 'package:project/core/utils/app_routes.dart';
 
 class CustomFeatuersCard extends StatelessWidget {
-  const CustomFeatuersCard({
-    super.key,
-    required this.bookModel,
-  });
+  const CustomFeatuersCard({super.key, required this.bookModel});
   final BookModel bookModel;
 
   @override
@@ -23,7 +20,9 @@ class CustomFeatuersCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: CachedNetworkImage(
             fit: BoxFit.fill,
-            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+            imageUrl:
+                bookModel.volumeInfo.imageLinks?.thumbnail ??
+                'https://dummyimage.com/600x400/000/fff&text=No+Image',
             errorWidget: (context, url, error) => Container(
               color: Colors.grey[900],
               child: const Icon(

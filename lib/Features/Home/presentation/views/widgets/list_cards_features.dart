@@ -4,18 +4,30 @@ import 'package:project/Features/Home/presentation/views%20model/featured_cubit/
 import 'package:project/Features/Home/presentation/views/widgets/custom_featuers_card.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_widget_error.dart';
 
-class FeatuersCards extends StatelessWidget {
+class FeatuersCards extends StatefulWidget {
   const FeatuersCards({super.key});
+
+  @override
+  State<FeatuersCards> createState() => _FeatuersCardsState();
+}
+
+class _FeatuersCardsState extends State<FeatuersCards> {
+  @override
+  void initState() {
+    context.read<FeaturedCubit>().getFeaturedBooks();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListCards();
   }
 }
+
 class ListCards extends StatelessWidget {
   const ListCards({super.key});
   @override
   Widget build(BuildContext context) {
-    context.read<FeaturedCubit>().homeRepo.fetchFeatuerdBooks();
     return BlocBuilder<FeaturedCubit, FeatuerdCubitState>(
       builder: (context, state) {
         if (state is FeaturedCubitSuccess) {

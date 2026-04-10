@@ -27,7 +27,9 @@ class CustomBestSellerCard extends StatelessWidget {
                     ).push(AppRoutes.kBookDetailsView, extra: bookModel);
                   },
                   child: CachedNetworkImage(
-                    imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,
+                    imageUrl:
+                        bookModel.volumeInfo.imageLinks?.thumbnail ??
+                        'https://dummyimage.com/600x400/000/fff&text=No+Image',
                     fit: BoxFit.fill,
                   ),
                 ),
