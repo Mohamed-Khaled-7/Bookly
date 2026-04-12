@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project/Features/Home/presentation/views%20model/best_seller_cubit/best_seller/best_seller_cubit.dart';
+import 'package:project/Features/Home/presentation/views%20model/also_like/also_like_cubit.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_also_like_card.dart';
-import 'package:project/Features/Home/presentation/views/widgets/custom_featuers_card.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_widget_error.dart';
 
 class AlsoLike extends StatelessWidget {
@@ -22,14 +21,16 @@ class AlsoLike extends StatelessWidget {
           ),
         ),
         SizedBox(height: 5),
-        SizedBox(
+        Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(23)),
           width: double.infinity,
           height: 117,
           child: Padding(
-            padding: const EdgeInsets.only(left: 17),
+            padding: const EdgeInsets.only(left: 15.0),
             child: AlsoLikeList(),
           ),
         ),
+        SizedBox(height: 16),
       ],
     );
   }
@@ -40,10 +41,11 @@ class AlsoLikeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BestSellerCubit, BestSellerState>(
+    return BlocBuilder<AlsoLikeCubit, AlsoLikeState>(
       builder: (context, state) {
-        if (state is BestSellerSuccess) {
+        if (state is AlsoLikeSuccess) {
           return ListView.builder(
+            physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
@@ -51,9 +53,9 @@ class AlsoLikeList extends StatelessWidget {
                 child: CustomAlsoLikeCard(bookModel: state.books[index]),
               );
             },
-            itemCount: 10,
+            itemCount: state.books.length,
           );
-        } else if (state is BestSellerFailure) {
+        } else if (state is AlsoLikeError) {
           return CustomError(errMessage: state.errMessage);
         } else {
           return const Center(

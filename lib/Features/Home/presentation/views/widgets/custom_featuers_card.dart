@@ -12,7 +12,9 @@ class CustomFeatuersCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
+        GoRouter.of(
+          context,
+        ).pushReplacement(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: AspectRatio(
         aspectRatio: 2.7 / 4,

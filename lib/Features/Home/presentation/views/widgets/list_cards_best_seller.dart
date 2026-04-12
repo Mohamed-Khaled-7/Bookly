@@ -4,20 +4,8 @@ import 'package:project/Features/Home/presentation/views%20model/best_seller_cub
 import 'package:project/Features/Home/presentation/views/widgets/custom_best_seller_card.dart';
 import 'package:project/Features/Home/presentation/views/widgets/custom_widget_error.dart';
 
-class BestSellerCards extends StatefulWidget {
+class BestSellerCards extends StatelessWidget {
   const BestSellerCards({super.key});
-
-  @override
-  State<BestSellerCards> createState() => _BestSellerCardsState();
-}
-
-class _BestSellerCardsState extends State<BestSellerCards> {
-  @override
-  void initState() {
-    context.read<BestSellerCubit>().getBestSellerBooks();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BestSellerCubit, BestSellerState>(

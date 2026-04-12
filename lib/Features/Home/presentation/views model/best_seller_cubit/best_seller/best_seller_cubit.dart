@@ -7,7 +7,7 @@ part 'best_seller_state.dart';
 
 class BestSellerCubit extends Cubit<BestSellerState> {
   HomeRepo homeRepo;
-  late List<BookModel> allBooks;
+  List<BookModel> allBooks = [];
   BestSellerCubit({required this.homeRepo}) : super(BestSellerInitial());
   Future<void> getBestSellerBooks() async {
     emit(BestSellerLoading());
@@ -23,7 +23,7 @@ class BestSellerCubit extends Cubit<BestSellerState> {
     );
   }
 
-  List<BookModel> getAllBooks(){
-     return allBooks;
+  List<BookModel> getAllBooks() {
+    return allBooks;
   }
 }

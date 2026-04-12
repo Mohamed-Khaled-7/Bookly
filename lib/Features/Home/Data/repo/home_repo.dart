@@ -5,4 +5,8 @@ import 'package:project/core/errors/faliers.dart';
 abstract class HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeatuerdBooks();
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks();
+
+  Future<Either<Failure, List<BookModel>>> fetchAlsoLikeBooks({
+    required String category,
+  });
 }

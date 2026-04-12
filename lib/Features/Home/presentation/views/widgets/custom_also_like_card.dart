@@ -11,7 +11,9 @@ class CustomAlsoLikeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
+        GoRouter.of(
+          context,
+        ).pushReplacement(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: CachedNetworkImage(
         imageUrl:

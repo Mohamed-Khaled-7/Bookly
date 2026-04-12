@@ -70,7 +70,6 @@ class OnSearchDelegated extends SearchDelegate {
       ),
     );
   }
-
   @override
   Widget buildSuggestions(BuildContext context) {
     return buildResults(context);

@@ -4,10 +4,11 @@ abstract class Failure {
   String errMessage;
   Failure({required this.errMessage});
 }
+
 class ServerFailure extends Failure {
   ServerFailure({required super.errMessage});
-  factory ServerFailure.fromDioError(DioException dioError) {
-    switch (dioError.type) {
+  factory ServerFailure.fromDioError(DioException dioExpection) {
+    switch (dioExpection.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure(errMessage: 'Connection Timeout');
       case DioExceptionType.sendTimeout:
@@ -18,20 +19,24 @@ class ServerFailure extends Failure {
         return ServerFailure(errMessage: 'Bad Certificate');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-          dioError.response!.statusCode!,
-          dioError.response,
+          dioExpection.response!.statusCode!,
+          dioExpection.response,
         );
       case DioExceptionType.cancel:
         return ServerFailure(errMessage: 'Cancel');
       case DioExceptionType.connectionError:
         return ServerFailure(errMessage: 'Connection Error');
       case DioExceptionType.unknown:
-        return ServerFailure(errMessage: 'Unknown Error'); 
+        return ServerFailure(errMessage: 'Unknown Error');
     }
   }
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    final data = response?.data;
+
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errMessage: response['error']['message']);
+      return ServerFailure(
+        errMessage: data?['error']?['message'] ?? 'Bad Request',
+      );
     } else if (statusCode == 404) {
       return ServerFailure(errMessage: 'Not Found, Please Try Again');
     } else if (statusCode == 500) {
@@ -40,7 +45,8 @@ class ServerFailure extends Failure {
       );
     } else {
       return ServerFailure(
-        errMessage: 'Opps There was an Error, Please Try Again',
+        errMessage:
+            data?['message'] ?? 'Oops There was an Error, Please Try Again',
       );
     }
   }

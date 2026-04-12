@@ -22,9 +22,10 @@ class CustomBestSellerCard extends StatelessWidget {
                 width: 70,
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(
-                      context,
-                    ).push(AppRoutes.kBookDetailsView, extra: bookModel);
+                    GoRouter.of(context).pushReplacement(
+                      AppRoutes.kBookDetailsView,
+                      extra: bookModel,
+                    );
                   },
                   child: CachedNetworkImage(
                     imageUrl:

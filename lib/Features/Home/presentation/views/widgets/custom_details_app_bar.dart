@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:project/core/utils/app_routes.dart';
 
 class CustomDetailsAppBar extends StatelessWidget {
   const CustomDetailsAppBar({super.key});
@@ -13,7 +15,8 @@ class CustomDetailsAppBar extends StatelessWidget {
           child: IconButton(
             icon: Icon(LucideIcons.x),
             onPressed: () {
-              Navigator.pop(context);
+              GoRouter.of(context).pushReplacement(AppRoutes.kHomeView);
+              ();
             },
           ),
         ),

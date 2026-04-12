@@ -4,9 +4,10 @@ import 'package:project/Features/Home/presentation/views/widgets/book_details_vi
 
 class BookDetailsView extends StatelessWidget {
   BookModel bookModel;
-   BookDetailsView({super.key,required this.bookModel});
+  BookDetailsView({super.key, required this.bookModel});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: BookDetailsViewBody(bookModel: bookModel,));
+    return Scaffold(body: BookDetailsViewBody(bookModel: bookModel));
   }
 }
