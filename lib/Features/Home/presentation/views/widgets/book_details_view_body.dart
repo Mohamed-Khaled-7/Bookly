@@ -17,11 +17,15 @@ class BookDetailsViewBody extends StatelessWidget {
           hasScrollBody: false,
           child: Column(
             children: [
-              SizedBox(height: 40),
-              CustomDetailsAppBar(),
               SizedBox(height: 20),
-              BookImage(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? 'https://dummyimage.com/600x400/000/fff&text=No+Image'),
-              BookNameAndAuther(bookModel: bookModel,),
+              CustomDetailsAppBar(),
+              SizedBox(height: 10),
+              BookImage(
+                imageUrl:
+                    bookModel.volumeInfo.imageLinks?.thumbnail ??
+                    'https://dummyimage.com/600x400/000/fff&text=No+Image',
+              ),
+              BookNameAndAuther(bookModel: bookModel),
               ButtonPrice(),
               AlsoLike(),
             ],

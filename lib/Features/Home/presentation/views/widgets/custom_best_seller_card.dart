@@ -17,21 +17,28 @@ class CustomBestSellerCard extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(width: 24),
-              SizedBox(
-                height: 105,
-                width: 70,
-                child: GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).pushReplacement(
-                      AppRoutes.kBookDetailsView,
-                      extra: bookModel,
-                    );
-                  },
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        bookModel.volumeInfo.imageLinks?.thumbnail ??
-                        'https://dummyimage.com/600x400/000/fff&text=No+Image',
-                    fit: BoxFit.fill,
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).pushReplacement(
+                    AppRoutes.kBookDetailsView,
+                    extra: bookModel,
+                  );
+                },
+                child: CachedNetworkImage(
+                  imageUrl:
+                      bookModel.volumeInfo.imageLinks?.thumbnail ??
+                      'https://dummyimage.com/600x400/000/fff&text=No+Image',
+                  fit: BoxFit.fill,
+                  imageBuilder: (context, imageProvider) => Container(
+                    width: 80,
+                    height: 130,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
               ),

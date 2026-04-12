@@ -13,13 +13,20 @@ class CustomAlsoLikeCard extends StatelessWidget {
       onTap: () {
         GoRouter.of(
           context,
-        ).pushReplacement(AppRoutes.kBookDetailsView, extra: bookModel);
+        ).pushReplacement(AppRoutes.kBookDetailsView, extra: bookModel,);
       },
       child: CachedNetworkImage(
         imageUrl:
             bookModel.volumeInfo.imageLinks?.thumbnail ??
             'https://dummyimage.com/600x400/000/fff&text=No+Image',
-        fit: BoxFit.fill,
+        imageBuilder: (context, imageProvider) => Container(
+          width: 88,
+          height: 120,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
+          ),
+        ),
       ),
     );
   }

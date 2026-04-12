@@ -7,6 +7,7 @@ import 'package:project/Features/Home/presentation/views/book_details_view.dart'
 import 'package:project/Features/Home/presentation/views/home_view.dart';
 import 'package:project/Features/Splash/Presentation/views/splash_view.dart';
 import 'package:project/core/utils/git_it.dart';
+
 abstract class AppRoutes {
   static final kHomeView = '/homeView';
   static final kBookDetailsView = '/bookDetailsView';
@@ -22,7 +23,7 @@ abstract class AppRoutes {
             create: (context) =>
                 AlsoLikeCubit(homeRepo: getIt.get<HomeRepoImplement>())
                   ..fetchAlsoLike(
-                    category: bookModel.volumeInfo.categories?.first ?? '',
+                    category: bookModel.volumeInfo.categories?[0] ?? 'General',
                   ),
             child: BookDetailsView(bookModel: bookModel),
           );
