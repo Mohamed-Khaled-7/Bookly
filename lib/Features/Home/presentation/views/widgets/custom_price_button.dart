@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project/Features/Home/Data/models/book_model/book_model.dart';
+import 'package:project/Features/Home/presentation/views/widgets/custom_lunch_url.dart';
 
-class ButtonPrice extends StatelessWidget {
-  const ButtonPrice({super.key});
-
+class buttonPrice extends StatelessWidget {
+  buttonPrice({super.key, required this.bookModel});
+  BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +14,7 @@ class ButtonPrice extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child:Center(
+            child: Center(
               child: Text(
                 'Free',
                 style: GoogleFonts.inter(color: Colors.black, fontSize: 18),
@@ -29,7 +31,9 @@ class ButtonPrice extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap:(){},
+            onTap: () {
+              launchCustomUr(context, bookModel.volumeInfo.previewLink);
+            },
             child: Container(
               child: Center(
                 child: Text(

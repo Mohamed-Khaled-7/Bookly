@@ -26,7 +26,7 @@ class BookDetailsViewBody extends StatelessWidget {
                     'https://dummyimage.com/600x400/000/fff&text=No+Image',
               ),
               BookNameAndAuther(bookModel: bookModel),
-              ButtonPrice(),
+              buttonPrice(bookModel: bookModel),
               AlsoLike(),
             ],
           ),

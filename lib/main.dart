@@ -6,21 +6,20 @@ import 'package:project/Features/Home/presentation/views%20model/searched_cubit/
 import 'package:project/constant.dart';
 import 'package:project/core/utils/app_routes.dart';
 import 'package:project/core/utils/git_it.dart';
+
 void main() {
-  setup();//for gitit
+  setup(); //for gitIt
   runApp(Bookly());
 }
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
   @override
-
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => SearchCubit()),
         BlocProvider(
-          create: (context) =>
-             getIt.get<FeaturedCubit>()..getFeaturedBooks(),
+          create: (context) => getIt.get<FeaturedCubit>()..getFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) =>
